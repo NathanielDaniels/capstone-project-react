@@ -7,10 +7,10 @@ import App from "./App"
 import "./index.css"
 
 ReactDOM.render(
-    <ContextProvider>
-        <Router>
-            <App />
-        </Router>
-    </ContextProvider>, 
-    document.getElementById("root")
+  <ContextProvider>
+    <Router>
+      <App />
+    </Router>
+  </ContextProvider>, 
+  document.getElementById("root")
 )
