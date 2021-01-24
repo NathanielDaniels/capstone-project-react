@@ -4,6 +4,8 @@ import {Context} from "../Context"
 function Image({className, img}) {
     const [hovered, setHovered] = useState(false)
     const {toggleFavorite} = useContext(Context)
+
+    console.log(img)
     
     const heartIcon = hovered && 
         <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
@@ -16,7 +18,7 @@ function Image({className, img}) {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <img src={img.url} className="image-grid"/>
+            <img src={img.url} className="image-grid" alt="for purchase"/>
             {heartIcon}
             {cartIcon}
         </div>
