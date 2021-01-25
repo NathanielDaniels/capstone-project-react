@@ -29,11 +29,14 @@ function ContextProvider({children}) {
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])
   }
+  function removeFromCart(newItem) {
+    setCartItems(prevItems => prevItems.filter(item => item !== newItem))
+  }
   
   console.log("Cart items:", cartItems)
   
   return (
-    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, cartItems}}>
+    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, removeFromCart ,cartItems}}>
       {children}
     </Context.Provider>
   )
