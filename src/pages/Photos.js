@@ -15,7 +15,7 @@ function Photos() {
     <main className="photos">
       {imageElements}
     </main>
-    )
+  )
 }
 
 export default Photos
