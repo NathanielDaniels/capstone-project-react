@@ -106,9 +106,9 @@ img.image-grid {
   transition: color 0.1s ease-in-out;
 }
 
-.ri-shopping-cart-fill:hover {
+/* .ri-shopping-cart-fill:hover {
   color: var(--red);
-}
+} */
 
 .cart {
   color: var(--blue);

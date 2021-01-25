@@ -1,3 +1,15 @@
+# Cart Icon Challenge
+
+Change the cart icon in the header to display the full cart icon if there are any items in the cart
+
+Full class name to use WHEN ITEMS IN CART:
+"ri-shopping-cart-fill ri-fw ri-2x"
+
+Full class name to use WHEN CART IS EMPTY:
+"ri-shopping-cart-line ri-fw ri-2x"
+
+//===================================================================
+
 # Change Cart Icon Challenge
 
 Change the plus icon to a full shopping cart icon when an image is already in the cart. This should display whether the image is being hovered or not (like the favorite icon).
@@ -10,8 +22,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 https://stackoverflow.com/a/8217584
 
-
 //===================================================================
+
 # CartItem Context Challenge
 
 Setup context to manage items in an array called `cartItems`. This will be an array of image objects.
@@ -20,8 +32,8 @@ Setup context to manage items in an array called `cartItems`. This will be an ar
 2. Add function to add an image to the cart. (Takes the full image object as parameter)
 3. Make it so clicking the plus icon on the image adds the item to the cart. (Console.log the cart items array to see that it's working)
 
-
 //===================================================================
+
 # PropTypes Challenge
 
 Add propTypes to the Image component
