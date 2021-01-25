@@ -4,20 +4,17 @@ import {Link} from "react-router-dom"
 
 function Header() {
   const {cartItems} = useContext(Context)
-
-  console.log("cart Items Header", cartItems)
-
-
-    return (
-        <header>
-            <Link to="/">
-              <h2>Pic Some</h2>
-            </Link>
-            <Link to="/cart">
-              {cartItems.length > 0 ? <i className="ri-shopping-cart-fill ri-fw ri-2x"></i> : <i className="ri-shopping-cart-line ri-fw ri-2x"></i>}
-            </Link>
-        </header>
-    )
+  const cartClassName = cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"
+  return (
+    <header>
+      <Link to="/">
+        <h2>Pic Some</h2>
+      </Link>
+      <Link to="/cart">
+        <i className={`${cartClassName} ri-fw ri-2x`}></i>
+      </Link>
+    </header>
+  )
 }
 
 export default Header
