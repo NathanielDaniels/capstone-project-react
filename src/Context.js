@@ -25,16 +25,15 @@ function ContextProvider({children}) {
     })
     setAllPhotos(updatedArr)
   }
-  function addToCart(url) {
-    // const photoUrl = allPhotos.map(photo => setCartItems(photo.url))
-    console.log(url)
-    // return photoUrl
+
+  function addToCart(newItem) {
+    setCartItems(prevItems => [...prevItems, newItem])
   }
   
-  console.log("Cart items:",cartItems)
+  console.log("Cart items:", cartItems)
   
   return (
-    <Context.Provider value={{allPhotos, toggleFavorite}}>
+    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, cartItems}}>
       {children}
     </Context.Provider>
   )

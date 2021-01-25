@@ -4,11 +4,11 @@ import PropTypes from "prop-types"
 
 function Image({className, img}) {
   const [hovered, setHovered] = useState(false)
-  const {toggleFavorite, addToCart} = useContext(Context)
+  const {toggleFavorite, addToCart, cartItems} = useContext(Context)
 
   // localStorage.setItem("favorited", img.isFavorite)
   // console.log("Local Storage Img:",localStorage.getItem("favorited"))
-
+  
   
   
   function heartIcon() {
@@ -18,8 +18,16 @@ function Image({className, img}) {
       return <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
     }
   } 
-  
-butt  const cartIcon = hovered && <i className="ri-add-circle-line cart" onClick={() => addToCart(img.url)}></i>
+
+  function cartIcon() {
+    const alreadyInCart = cartItems.find(item => item.id === img.id)
+    console.log(cartItems.length)
+    if (alreadyInCart) {
+      return <i className="ri-shopping-cart-fill cart" onClick={() => addToCart(img)}></i>
+    } else if (hovered) {
+      return <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i> 
+    }
+  }
   
   return (
     <div 
@@ -29,7 +37,7 @@ butt  const cartIcon = hovered && <i className="ri-add-circle-line cart" onClick
     >
       <img src={img.url} className="image-grid" alt={`#${img.id}`}/>
       {heartIcon()}
-      {cartIcon}
+      {cartIcon()}
     </div>
   )
 }
