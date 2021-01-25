@@ -3,6 +3,7 @@ import {Context} from "../Context"
 
 function CartItem({item}) {
   const {removeFromCart} = useContext(Context)
+  // const trashCan = 
 
   return (
     <div className="cart-item">

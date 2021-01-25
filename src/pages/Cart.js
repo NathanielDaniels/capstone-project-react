@@ -31,8 +31,9 @@ function Cart() {
             {cartItemElements}
             <p className="total-cost">Total: {totalCostDisplay}</p>
             <div className="order-button">
-                <button onClick={placeOrder}>{buttonText}</button>
+              <button onClick={placeOrder}>{buttonText}</button>
             </div>
+            
         </main>
     )
 }
