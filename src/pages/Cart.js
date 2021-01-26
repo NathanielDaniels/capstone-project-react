@@ -13,28 +13,31 @@ function Cart() {
     ))
 
     function placeOrder() {
-      const title = document.querySelector(".cart-page > h1")
       setButtonText("Ordering...")
       setTimeout(() => {
         setButtonText("Place Order")
-        title.innerText = "Order Placed!"
-        setTimeout(() => {
-          title.innerText = "Check Out"
-        }, 3000)
+        changeCartTitleText()
         emptyCart()
       }, 1500)
     }
+
+    function changeCartTitleText() {
+      const title = document.querySelector(".cart-page > h1")
+      title.innerText = "Order Placed!"
+      setTimeout(() => {
+        title.innerText = "Check Out"
+      }, 3000)
+    }
     
     return (
-        <main className="cart-page">
-            <h1>Check out</h1>
-            {cartItemElements}
-            <p className="total-cost">Total: {totalCostDisplay}</p>
-            <div className="order-button">
-              <button onClick={placeOrder}>{buttonText}</button>
-            </div>
-            
-        </main>
+      <main className="cart-page">
+        <h1>Check out</h1>
+        {cartItemElements}
+        <p className="total-cost">Total: {totalCostDisplay}</p>
+        <div className="order-button">
+          <button onClick={placeOrder}>{buttonText}</button>
+        </div>
+      </main>
     )
 }
 
