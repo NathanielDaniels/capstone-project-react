@@ -13,18 +13,23 @@ function Cart() {
     ))
 
     function placeOrder() {
+      const orderButton = document.querySelector(".order-button > button")
+      orderButton.style.backgroundColor = "lightgray"
       setButtonText("Ordering...")
       setTimeout(() => {
+        orderButton.style.backgroundColor = "#fff"
         setButtonText("Place Order")
-        changeCartTitleText()
+        changeCartTitle()
         emptyCart()
       }, 1500)
     }
 
-    function changeCartTitleText() {
+    function changeCartTitle() {
       const title = document.querySelector(".cart-page > h1")
+      title.style.color = "green"
       title.innerText = "Order Placed!"
       setTimeout(() => {
+        title.style.color = "black"
         title.innerText = "Check Out"
       }, 3000)
     }
