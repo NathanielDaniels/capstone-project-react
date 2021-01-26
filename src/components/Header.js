@@ -6,7 +6,7 @@ function Header() {
   const {cartItems} = useContext(Context)
   const cartClassName = cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"
 
-  console.log("header cart items" , cartItems.length)
+  // console.log("header cart items" , cartItems.length)
 
   const cartCounter = () => (
     cartItems.length > 0 && <span className="cartCounter">{cartItems.length}</span>

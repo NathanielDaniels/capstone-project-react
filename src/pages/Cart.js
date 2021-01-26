@@ -8,8 +8,6 @@ function Cart() {
     const totalCost = cartItems.length * 5.99
     const totalCostDisplay = totalCost.toLocaleString("en-US", {style: "currency", currency: "USD"})
 
-    console.log(cartItems.length)
-
     const cartItemElements = cartItems.map(item => (
         <CartItem key={item.id} item={item} />
     ))
