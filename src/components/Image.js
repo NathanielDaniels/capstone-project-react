@@ -7,7 +7,7 @@ function Image({className, img}) {
   const {toggleFavorite, addToCart, removeFromCart, cartItems} = useContext(Context)
 
   // localStorage.setItem("favorited", img.isFavorite)
-  // console.log("Local Storage Img:",localStorage.getItem("favorited"))
+  // console.log("Local Storage Img:", localStorage.getItem("favorited"))
   
   function heartIcon() {
     if (img.isFavorite) {

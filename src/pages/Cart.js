@@ -8,6 +8,8 @@ function Cart() {
     const totalCost = cartItems.length * 5.99
     const totalCostDisplay = totalCost.toLocaleString("en-US", {style: "currency", currency: "USD"})
 
+    
+
     const cartItemElements = cartItems.map(item => (
         <CartItem key={item.id} item={item} />
     ))
@@ -34,7 +36,11 @@ function Cart() {
       }, 3000)
     }
 
-    const showOrderBtn = () => (cartItems.length > 0 && <button onClick={placeOrder}>{buttonText}</button>)
+    const showOrderBtn = () => (
+      cartItems.length > 0 
+      ? <button onClick={placeOrder}>{buttonText}</button> 
+      : <p>You have no items in your cart.</p>
+    )
     
     
     return (
