@@ -7,7 +7,13 @@ function ContextProvider({children}) {
   // const [allPhotos, setAllPhotos] = useState({isFavorite: localStorage.getItem("favorited")})
   const [cartItems, setCartItems] = useState([])
 
-  // localStorage.setItem("favorited", allPhotos.map(item => item.isFavorite))
+  console.log("did it save?",localStorage.getItem("favorited"))
+
+  console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
+
+
+  // console.log(allPhotos.map(photo => localStorage.setItem("favorited", photo.isFavorite)))
+  // console.log(allPhotos.map(photo => photo.isFavorite && localStorage.setItem("favorited", photo.isFavorite)))
   // localStorage.setItem("favorited", allPhotos.map(item => item))
 
   // console.log("allPhotos",allPhotos)
@@ -26,7 +32,7 @@ function ContextProvider({children}) {
   //  const favoritedImgList = localStorage.getItem("favorited")
     const updatedArr = allPhotos.map(photo => {
       if (photo.id === id) {
-        // localStorage.setItem("favorited", allPhotos.map(item => {...photo, isFavorite: item.isFavorite}))
+        // localStorage.setItem("favorited", allPhotos.map(item => item.isFavorite))
         // console.log("Local Storage Img:", localStorage.getItem("favorited"))
         return {...photo, isFavorite: !photo.isFavorite}
       }
@@ -36,7 +42,9 @@ function ContextProvider({children}) {
   }
 
   useEffect(() => {
-    console.log("useEffect localStoraged:", localStorage.getItem("favorited"))
+    // localStorage.setItem("favorited", allPhotos.map(item => {"url": item.url, "id": item.id, "isFavorite": item.isFavorite}))
+    // console.log("useEffect local Storage:", localStorage.getItem("favorited"))
+    // setAllPhotos({isFavorite: localStorage.getItem("favorited")})
   })
 
 

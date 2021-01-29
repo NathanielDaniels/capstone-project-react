@@ -5,7 +5,7 @@ function useHover() {
   const [hovered, setHovered] = useState(false)
   const ref = useRef(null)
   
-  console.log("ref", ref)
+  // console.log("ref", ref)
   function mouseEnter() {
     setHovered(true)
   }
