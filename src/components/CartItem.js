@@ -6,7 +6,6 @@ import useHover from "../hooks/useHover"
 function CartItem({item}) {
   const [hovered, ref] = useHover()
   const {removeFromCart} = useContext(Context)
-  // const [hovered, setHovered] = useState(false)
 
   function trashHover() {
     if (hovered) {
