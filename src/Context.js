@@ -28,7 +28,6 @@ function ContextProvider({children}) {
   // console.log("did it save?",localStorage.getItem("favorited"))
 
   // useEffect(() => {
-    // console.log(allPhotos)
     // const favorites = allPhotos.map(item => item)
     // console.log("favorites:",favorites)
     // for (let i = 0; i < favorites.length; i++) {
