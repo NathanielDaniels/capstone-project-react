@@ -20,7 +20,6 @@ function Image({className, img}) {
 
   function cartIcon() {
     const alreadyInCart = cartItems.find(item => item.id === img.id)
-    // console.log(cartItems.length)
     if (alreadyInCart) {
       return <i className="ri-shopping-cart-fill cart" onClick={() => removeFromCart(img.id)}></i>
     } else if (hovered) {
