@@ -6,6 +6,9 @@ function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState([])
   const [cartItems, setCartItems] = useState([])
 
+  localStorage.setItem("photos", allPhotos)
+  console.log(localStorage.getItem("photos"))
+
   // console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
