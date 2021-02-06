@@ -6,10 +6,10 @@ function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState([])
   const [cartItems, setCartItems] = useState([])
 
-  localStorage.setItem("photos", allPhotos)
-  console.log(localStorage.getItem("photos"))
+  // console.log(allPhotos.map(photos => photos.isFavorite))
 
   // console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
+  // console.log("localStorage Test: ", localStorage.getItem("photos"))
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
@@ -21,6 +21,7 @@ function ContextProvider({children}) {
   function toggleFavorite(id) {
     const updatedArr = allPhotos.map(photo => {
       if (photo.id === id) {
+        localStorage.setItem("photos", photo.isFavorite)
         return {...photo, isFavorite: !photo.isFavorite}
       }
       return photo
@@ -30,35 +31,37 @@ function ContextProvider({children}) {
 
   // console.log("did it save?",localStorage.getItem("favorited"))
 
-  // useEffect(() => {
+  useEffect(() => {
     // console.log(allPhotos)
-    // const favorites = allPhotos.map(item => item)
+    const favorites = allPhotos.map(item => item)
     // console.log("favorites:",favorites)
-    // for (let i = 0; i < favorites.length; i++) {
-    //   console.log(favorites[i])
-    //   localStorage.setItem("favorited", favorites[i])
-    //   // const updateFav = JSON.parse(localStorage.getItem("favorited"))
-    //   const updateFav = localStorage.getItem("favorited")
-    //   console.log(updateFav)
-    //   // setAllPhotos{updateFav}
-    // }
+    for (let i = 0; i < favorites.length; i++) {
+      // console.log(favorites[i])
+      localStorage.setItem("favorited", favorites[i])
+      // const updateFav = JSON.parse(localStorage.getItem("favorited"))
+      const updateFav = localStorage.getItem("favorited")
+      console.log("updateFav",updateFav)
+      // setAllPhotos{updateFav}
+    }
 
 
 
     // localStorage.setItem("favorited", allPhotos.map(item => item.isFavorite))
-    // console.log("did it save?",localStorage.getItem("favorited"))
-    // // localStorage.setItem("favorited", allPhotos.map(item => {"url": item.url, "id": item.id, "isFavorite": item.isFavorite}))
-    //   const mapFavorites = [...localStorage.getItem("favorited").split(",")]
+    console.log("did it save?",localStorage.getItem("favorited"))
+    // localStorage.setItem("favorited", allPhotos.map(item => {"url": item.url, "id": item.id, "isFavorite": item.isFavorite}))
+      const mapFavorites = [...localStorage.getItem("favorited").split(",")]
 
-    //   for (let i = 0; i < mapFavorites.length; i++) {
-    //     // console.log(mapFavorites[i])
-    //     // const mappedItems = allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": mapFavorites[i]}))
-    //     const mappedItems = allPhotos.map(item => item)
-    //     console.log("Mapped Items: ", mappedItems)
-    //   }
-      // console.log("mapFavorites", mapFavorites)
-  // }, [allPhotos])
+      for (let i = 0; i < mapFavorites.length; i++) {
+        // console.log(mapFavorites[i])
+        // const mappedItems = allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": mapFavorites[i]}))
+        const mappedItems = allPhotos.map(item => item)
+        console.log("Mapped Items: ", mappedItems)
+      }
+      console.log("mapFavorites", mapFavorites)
+      // localStorage.setitem("newPhotos", mapFavorites)
+  }, [allPhotos])
 
+  // console.log("newPhotosStorage", localStorage.setitem("newPhotos"))
 
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])

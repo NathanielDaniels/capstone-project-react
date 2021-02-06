@@ -26,7 +26,7 @@ function Image({className, img}) {
       return <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i> 
     }
   }
-  
+ 
   return (
     <div 
       className={`${className} image-container`}
