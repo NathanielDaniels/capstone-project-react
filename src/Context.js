@@ -6,7 +6,7 @@ function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState([])
   const [cartItems, setCartItems] = useState([])
 
-  // console.log(allPhotos.map(photos => photos.isFavorite))
+  console.log("allPhoto test: ",allPhotos.map(item => item))
 
   // console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
   // console.log("localStorage Test: ", localStorage.getItem("photos"))
@@ -32,36 +32,16 @@ function ContextProvider({children}) {
   // console.log("did it save?",localStorage.getItem("favorited"))
 
   useEffect(() => {
-    // console.log(allPhotos)
-    const favorites = allPhotos.map(item => item)
-    // console.log("favorites:",favorites)
-    for (let i = 0; i < favorites.length; i++) {
-      // console.log(favorites[i])
-      localStorage.setItem("favorited", favorites[i])
-      // const updateFav = JSON.parse(localStorage.getItem("favorited"))
-      const updateFav = localStorage.getItem("favorited")
-      console.log("updateFav",updateFav)
-      // setAllPhotos{updateFav}
-    }
 
+    const favorites = allPhotos.map(item => item.isFavorite)
+    console.log(favorites)
 
-
-    // localStorage.setItem("favorited", allPhotos.map(item => item.isFavorite))
-    console.log("did it save?",localStorage.getItem("favorited"))
-    // localStorage.setItem("favorited", allPhotos.map(item => {"url": item.url, "id": item.id, "isFavorite": item.isFavorite}))
-      const mapFavorites = [...localStorage.getItem("favorited").split(",")]
-
-      for (let i = 0; i < mapFavorites.length; i++) {
-        // console.log(mapFavorites[i])
-        // const mappedItems = allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": mapFavorites[i]}))
-        const mappedItems = allPhotos.map(item => item)
-        console.log("Mapped Items: ", mappedItems)
-      }
-      console.log("mapFavorites", mapFavorites)
-      // localStorage.setitem("newPhotos", mapFavorites)
+    const mappedItems = allPhotos.map(item => item)
+    console.log("Mapped Items: ", mappedItems)
+    
+    localStorage.setItem("test", mappedItems)
+    console.log(localStorage.getItem("test"))
   }, [allPhotos])
-
-  // console.log("newPhotosStorage", localStorage.setitem("newPhotos"))
 
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])
