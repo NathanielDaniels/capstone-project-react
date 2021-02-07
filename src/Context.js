@@ -33,13 +33,13 @@ function ContextProvider({children}) {
 
   useEffect(() => {
 
-    const favorites = allPhotos.map(item => item.isFavorite)
-    console.log(favorites)
+    // const favorites = allPhotos.map(item => item.isFavorite)
+    // console.log(favorites)
 
     const mappedItems = allPhotos.map(item => item)
     console.log("Mapped Items: ", mappedItems)
     
-    localStorage.setItem("test", mappedItems)
+    localStorage.setItem("test",  allPhotos.map(item => item))
     console.log(localStorage.getItem("test"))
   }, [allPhotos])
 
