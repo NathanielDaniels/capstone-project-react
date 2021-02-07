@@ -5,8 +5,16 @@ const Context = React.createContext()
 function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState([])
   const [cartItems, setCartItems] = useState([])
+  console.log(allPhotos.map(item => [{...item, isFavorite: item.isFavorite}]))
+  console.log(allPhotos.map(item => item))
 
-  console.log("allPhoto test: ",allPhotos.map(item => item))
+  // console.log("spread",{...allPhotos, isFavorite: true})
+
+  // const test = [{...allPhotos.map(item => item.isFavorite)}]
+  // console.log(test)
+
+  const isFavorite = allPhotos.map(item => item.isFavorite)
+  console.log(isFavorite)
 
   // console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
   // console.log("localStorage Test: ", localStorage.getItem("photos"))
@@ -21,7 +29,7 @@ function ContextProvider({children}) {
   function toggleFavorite(id) {
     const updatedArr = allPhotos.map(photo => {
       if (photo.id === id) {
-        localStorage.setItem("photos", photo.isFavorite)
+        // localStorage.setItem("photos", photo.isFavorite)
         return {...photo, isFavorite: !photo.isFavorite}
       }
       return photo
@@ -36,10 +44,10 @@ function ContextProvider({children}) {
     // const favorites = allPhotos.map(item => item.isFavorite)
     // console.log(favorites)
 
-    const mappedItems = allPhotos.map(item => item)
-    console.log("Mapped Items: ", mappedItems)
+    // const mappedItems = allPhotos.map(item => item)
+    // console.log("Mapped Items: ", mappedItems)
     
-    localStorage.setItem("test",  allPhotos.map(item => item))
+    localStorage.setItem("test", allPhotos.map(item => item.isFavorite))
     console.log(localStorage.getItem("test"))
   }, [allPhotos])
 
