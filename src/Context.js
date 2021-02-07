@@ -4,20 +4,10 @@ const Context = React.createContext()
 
 function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState([])
-  const [cartItems, setCartItems] = useState([])
-  console.log(allPhotos.map(item => [{...item, isFavorite: item.isFavorite}]))
-  console.log(allPhotos.map(item => item))
-
-  // console.log("spread",{...allPhotos, isFavorite: true})
-
-  // const test = [{...allPhotos.map(item => item.isFavorite)}]
-  // console.log(test)
-
+  const [cartItems, setCartItems] = useState([])   
+  
   const isFavorite = allPhotos.map(item => item.isFavorite)
-  console.log(isFavorite)
-
-  // console.log("Tester",allPhotos.map(item => ({"url": item.url, "id": item.id, "isFavorite": localStorage.getItem("favorited")})))
-  // console.log("localStorage Test: ", localStorage.getItem("photos"))
+  console.log("Favorites:",isFavorite)
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
@@ -40,15 +30,9 @@ function ContextProvider({children}) {
   // console.log("did it save?",localStorage.getItem("favorited"))
 
   useEffect(() => {
-
-    // const favorites = allPhotos.map(item => item.isFavorite)
-    // console.log(favorites)
-
-    // const mappedItems = allPhotos.map(item => item)
-    // console.log("Mapped Items: ", mappedItems)
-    
-    localStorage.setItem("test", allPhotos.map(item => item.isFavorite))
-    console.log(localStorage.getItem("test"))
+    console.log("All Photos:",allPhotos)
+    localStorage.setItem("photoState", [allPhotos.map(item => item)])
+    console.log("localStorage:", localStorage.getItem("photoState"))
   }, [allPhotos])
 
   function addToCart(newItem) {
