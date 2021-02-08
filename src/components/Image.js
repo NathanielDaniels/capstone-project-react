@@ -32,7 +32,7 @@ function Image({className, img}) {
       className={`${className} image-container`}
       ref={ref}
     >
-      <img src={img.url} className="image-grid" alt={`#${img.id}`}/>
+      <img src={img.url} className="image-grid" alt={`...Loading #${img.id}`}/>
       {heartIcon()}
       {cartIcon()}
     </div>
