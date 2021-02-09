@@ -5,6 +5,7 @@ const Context = React.createContext()
 function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
+  // const [cartItems, setCartItems] = useState([])
 
   // console.log(JSON.parse(localStorage.getItem("photos")).length)
   
@@ -28,14 +29,11 @@ function ContextProvider({children}) {
 
   useEffect(() => {
 
-    // console.log("AllPhotos useEffect:", allPhotos)
-
     localStorage.setItem("photos", JSON.stringify(allPhotos))
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
     
     // console.log(JSON.parse(localStorage.getItem("cartItems")).length)
     // console.log("localStorage:", JSON.parse(localStorage.getItem("photos")))
-
   }, [allPhotos, cartItems])
 
   function addToCart(newItem) {
