@@ -15,6 +15,9 @@ function ContextProvider({children}) {
     fetch(url)
       .then(res => res.json())
       .then(data => photoStorage.length > 0 ? photoStorage : setAllPhotos(data))
+      .catch(error => {
+        console.error('Fetch Error!', error)
+      })
   }, [])
   
   function toggleFavorite(id) {
