@@ -4,13 +4,7 @@ const Context = React.createContext()
 
 function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = useState(localStorage.getItem("photos") ? JSON.parse(localStorage.getItem("photos")) : [])
-  // const [allPhotos, setAllPhotos] = useState([])
-  const [cartItems, setCartItems] = useState([])   
-  
-  
-  // console.log("allPhotos", JSON.parse(allPhotos))
-  // const isFavorite = allPhotos.map(item => item.isFavorite)
-  // console.log("Favorites:",isFavorite)
+  const [cartItems, setCartItems] = useState([])
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
@@ -22,7 +16,6 @@ function ContextProvider({children}) {
   function toggleFavorite(id) {
     const updatedArr = allPhotos.map(photo => {
       if (photo.id === id) {
-        // localStorage.setItem("photos", JSON.stringify(photo))
         return {...photo, isFavorite: !photo.isFavorite}
       }
       return photo
@@ -30,13 +23,9 @@ function ContextProvider({children}) {
     setAllPhotos(updatedArr)
   }
 
-  // console.log("did it save?",localStorage.getItem("favorited"))
-
   useEffect(() => {
     console.log("AllPhotos useEffect:", allPhotos)
     localStorage.setItem("photos", JSON.stringify(allPhotos))
-    // setAllPhotos(JSON.parse(localStorage.getItem("photos")))
-    // localStorage.setItem("photos", allPhotos)
     console.log("localStorage:", JSON.parse(localStorage.getItem("photos")))
   }, [allPhotos])
 
