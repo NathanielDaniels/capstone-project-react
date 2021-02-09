@@ -24,9 +24,7 @@ function ContextProvider({children}) {
   }
 
   useEffect(() => {
-    console.log("AllPhotos useEffect:", allPhotos)
     localStorage.setItem("photos", JSON.stringify(allPhotos))
-    console.log("localStorage:", JSON.parse(localStorage.getItem("photos")))
   }, [allPhotos])
 
   function addToCart(newItem) {
