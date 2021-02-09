@@ -12,18 +12,18 @@ function Image({className, img}) {
   
   function heartIcon() {
     if (img.isFavorite) {
-      return <i className="ri-heart-fill favorite" onClick={() => toggleFavorite(img.id)}></i>
+      return <i className="ri-heart-fill favorite" title="Favorite" onClick={() => toggleFavorite(img.id)}></i>
     } else if (hovered) {
-      return <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
+      return <i className="ri-heart-line favorite" title="Favorite" onClick={() => toggleFavorite(img.id)}></i>
     }
   } 
 
   function cartIcon() {
     const alreadyInCart = cartItems.find(item => item.id === img.id)
     if (alreadyInCart) {
-      return <i className="ri-shopping-cart-fill cart" onClick={() => removeFromCart(img.id)}></i>
+      return <i className="ri-shopping-cart-fill cart"  onClick={() => removeFromCart(img.id)}></i>
     } else if (hovered) {
-      return <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i> 
+      return <i className="ri-add-circle-line cart" title="Add To Cart" onClick={() => addToCart(img)}></i> 
     }
   }
  

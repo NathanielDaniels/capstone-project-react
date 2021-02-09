@@ -3,9 +3,8 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-  // const [allPhotos, setAllPhotos] = useState(localStorage.getItem("photos") ? JSON.parse(localStorage.getItem("photos")) : [])
   const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
 
   // console.log(JSON.parse(localStorage.getItem("photos")).length)
   
@@ -32,10 +31,12 @@ function ContextProvider({children}) {
     // console.log("AllPhotos useEffect:", allPhotos)
 
     localStorage.setItem("photos", JSON.stringify(allPhotos))
-
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    
+    // console.log(JSON.parse(localStorage.getItem("cartItems")).length)
     // console.log("localStorage:", JSON.parse(localStorage.getItem("photos")))
 
-  }, [allPhotos])
+  }, [allPhotos, cartItems])
 
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])
