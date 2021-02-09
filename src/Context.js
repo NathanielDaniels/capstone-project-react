@@ -3,10 +3,11 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-  const [allPhotos, setAllPhotos] = useState(localStorage.getItem("photos") ? JSON.parse(localStorage.getItem("photos")) : [])
+  // const [allPhotos, setAllPhotos] = useState(localStorage.getItem("photos") ? JSON.parse(localStorage.getItem("photos")) : [])
+  const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
   const [cartItems, setCartItems] = useState([])
 
-  console.log(JSON.parse(localStorage.getItem("photos")).length)
+  // console.log(JSON.parse(localStorage.getItem("photos")).length)
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
