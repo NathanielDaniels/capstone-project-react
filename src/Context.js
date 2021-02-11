@@ -7,7 +7,6 @@ function ContextProvider({children}) {
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
   // const [cartItems, setCartItems] = useState([])
 
-  // console.log(JSON.parse(localStorage.getItem("photos")).length)
   
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
@@ -31,12 +30,8 @@ function ContextProvider({children}) {
   }
 
   useEffect(() => {
-
     localStorage.setItem("photos", JSON.stringify(allPhotos))
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-    
-    // console.log(JSON.parse(localStorage.getItem("cartItems")).length)
-    // console.log("localStorage:", JSON.parse(localStorage.getItem("photos")))
   }, [allPhotos, cartItems])
 
   function addToCart(newItem) {
