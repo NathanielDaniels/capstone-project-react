@@ -31,15 +31,10 @@ function ContextProvider({children}) {
     setAllPhotos(updatedArr)
   }
 
-  // useEffect(() => {
-  //   localStorage.setItem("photos", JSON.stringify(allPhotos))
-  //   localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  // }, [allPhotos, cartItems])
-  
   useEffect(() => {
     localStorage.setItem("photos", JSON.stringify(allPhotos))
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  }, [])
+  }, [allPhotos, cartItems])
 
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])
