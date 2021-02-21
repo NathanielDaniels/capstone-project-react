@@ -3,10 +3,13 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-  const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
-
+  // const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
+  // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
   
+  const [allPhotos, setAllPhotos] = useState([])
+  const [cartItems, setCartItems] = useState([])
+
+  console.log(JSON.parse(localStorage.getItem("photos")))
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
     const photoStorage = JSON.parse(localStorage.getItem("photos"))
@@ -28,10 +31,15 @@ function ContextProvider({children}) {
     setAllPhotos(updatedArr)
   }
 
+  // useEffect(() => {
+  //   localStorage.setItem("photos", JSON.stringify(allPhotos))
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  // }, [allPhotos, cartItems])
+  
   useEffect(() => {
     localStorage.setItem("photos", JSON.stringify(allPhotos))
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  }, [allPhotos, cartItems])
+  }, [])
 
   function addToCart(newItem) {
     setCartItems(prevItems => [...prevItems, newItem])
