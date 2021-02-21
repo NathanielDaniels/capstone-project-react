@@ -6,9 +6,6 @@ import useHover from "../hooks/useHover"
 function Image({className, img}) {
   const [hovered, ref] = useHover(null)
   const {toggleFavorite, addToCart, removeFromCart, cartItems} = useContext(Context)
-
-  // localStorage.setItem("favorited", img.isFavorite)
-  // console.log("Local Storage Img:", localStorage.getItem("favorited"))
   
   function heartIcon() {
     if (img.isFavorite) {

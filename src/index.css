@@ -59,9 +59,11 @@ a {
 a:visited {
   color: var(--light-blue);
 }
+
 a:hover {
   color: var(--light-blue);
 }
+
 a:active {
   color: var(--light-blue);
 }
@@ -124,13 +126,10 @@ img.image-grid {
 }
 
 main.cart-page {
-  /* max-width: 1000px;
-  margin: 0 auto;
-  background: #fff; */
   padding: 10px;
 }
 
-.cart-page > h1 {
+.cart-page>h1 {
   text-align: center;
 }
 
@@ -168,17 +167,17 @@ main.cart-page {
   justify-content: center;
 }
 
-.order-button > button {
+.order-button>button {
   border-color: var(--black);
   cursor: pointer;
   padding: 15px;
   transition: all 0.2s ease-in-out;
 }
 
-.order-button > button:focus {
+.order-button>button:focus {
   outline: none;
 }
 
-.order-button > button:disabled {
+.order-button>button:disabled {
   border-color: lightgray;
 }

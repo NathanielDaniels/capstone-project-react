@@ -6,8 +6,6 @@ import {getClass} from "../utils/index"
 
 function Photos() {
   const {allPhotos} = useContext(Context)
-
-  //  console.log("Local Storage Img:", localStorage.getItem("favorited"))
   
   const imageElements = allPhotos.map((img, i) => (
     <Image key={img.id} img={img} className={getClass(i)} />
