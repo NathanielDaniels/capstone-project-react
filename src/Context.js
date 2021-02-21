@@ -12,10 +12,11 @@ function ContextProvider({children}) {
   console.log(JSON.parse(localStorage.getItem("photos")))
   const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
   useEffect(() => {
-    const photoStorage = JSON.parse(localStorage.getItem("photos"))
+    // const photoStorage = JSON.parse(localStorage.getItem("photos"))
     fetch(url)
       .then(res => res.json())
-      .then(data => photoStorage.length > 0 ? photoStorage : setAllPhotos(data))
+      .then(data => setAllPhotos(data))
+      // .then(data => photoStorage.length > 0 ? photoStorage : setAllPhotos(data))
       .catch(error => {
         console.error('Fetch Error!', error)
       })
