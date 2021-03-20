@@ -3,20 +3,23 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-  // const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")).length > 0 ? JSON.parse(localStorage.getItem("photos")) : [])
-  // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [])
-  
-  const [allPhotos, setAllPhotos] = useState([])
-  const [cartItems, setCartItems] = useState([])
+  const [allPhotos, setAllPhotos] = useState(JSON.parse(localStorage.getItem("photos")) || [])
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || [])
 
-  console.log(JSON.parse(localStorage.getItem("photos")))
-  const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
+  
+  
+  // const [allPhotos, setAllPhotos] = useState([])
+  // const [cartItems, setCartItems] = useState([])
+
+  console.log("storage:", JSON.parse(localStorage.getItem("photos")))
   useEffect(() => {
-    // const photoStorage = JSON.parse(localStorage.getItem("photos"))
+    const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
+    const photoStorage = JSON.parse(localStorage.getItem("photos"))
+    console.log("photoStorage", photoStorage)
     fetch(url)
       .then(res => res.json())
-      .then(data => setAllPhotos(data))
-      // .then(data => photoStorage.length > 0 ? photoStorage : setAllPhotos(data))
+      // .then(data => setAllPhotos(data))
+      .then(data => photoStorage.length > 0 ? photoStorage : setAllPhotos(data))
       .catch(error => {
         console.error('Fetch Error!', error)
       })
